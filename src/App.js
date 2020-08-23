@@ -13,9 +13,13 @@ function App() {
     });
   }, []);
 
+  const checkAnswer = (answer) => {
+    /* verify correct and incorrect */
+  }
+
   return questions.length > 0 ? (
     <div className='container'>
-      <Questionaire data={questions[0]}/>
+      <Questionaire data={questions[0]} checkAnswer={checkAnswer}/>
     </div>
   ) : (
     <h2 className='text-2xl text-white font-bold'>Loading<i className="fa fa-hourglass-start"></i></h2>
