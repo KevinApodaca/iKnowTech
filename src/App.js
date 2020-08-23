@@ -31,9 +31,11 @@ function App() {
     }
 
     setShowAnswers(true);
-    // const newIndex = currentIndex + 1
-    // setCurrentIndex(newIndex);
   };
+  const fetchNextQuestion = () => {
+    setShowAnswers(false);
+    setCurrentIndex(currentIndex + 1);
+  }
 
   /* Body of the game */
   return questions.length > 0 ? (
@@ -47,6 +49,7 @@ function App() {
             data={questions[currentIndex]}
             showAnswers={showAnswers}
             checkAnswer={checkAnswer}
+            fetchNextQuestion={fetchNextQuestion}
         />
       )}
     </div>

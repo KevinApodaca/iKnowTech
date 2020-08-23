@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Questionaire = ({ 
+    fetchNextQuestion,
     showAnswers,
     checkAnswer,
     data: {question, correct_answer, incorrect_answers},
@@ -29,8 +30,10 @@ const Questionaire = ({
                 })}
             </div>
             {showAnswers && (
-                <button className={`bg-blue-700 p-4 font-semibold rounded shadow ml-auto mt-6`}>
-                   Next Question
+                <button
+                    onClick={fetchNextQuestion}
+                    className={`bg-blue-700 p-4 font-semibold rounded shadow ml-auto mt-6`}>
+                    Next Question
                </button>
             )}
         </div>
