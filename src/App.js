@@ -10,6 +10,7 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [showAnswers, setShowAnswers] = useState(false);
 
   useEffect(() => {
     fetch(TRIVIA_URL)
@@ -23,11 +24,15 @@ function App() {
 
 /* Verify correct and incorrect. Update the scores */
   const checkAnswer = (answer) => {
-    const newIndex = currentIndex + 1
-    setCurrentIndex(newIndex);
-    if (answer === questions[currentIndex].correct_answer){
-      setScore(score + 1);
+    if (!showAnswers) {
+      if (answer === questions[currentIndex].correct_answer) {
+        setScore(score + 1);
+      }
     }
+
+    setShowAnswers(true);
+    // const newIndex = currentIndex + 1
+    // setCurrentIndex(newIndex);
   };
 
   /* Body of the game */
@@ -40,6 +45,7 @@ function App() {
       ) : (
         <Questionaire 
             data={questions[currentIndex]}
+            showAnswers={showAnswers}
             checkAnswer={checkAnswer}
         />
       )}
