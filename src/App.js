@@ -10,7 +10,6 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     fetch(TRIVIA_URL)
@@ -25,32 +24,29 @@ function App() {
 /* Verify correct and incorrect. Update the scores */
   const checkAnswer = (answer) => {
     const newIndex = currentIndex + 1
-    setCurrentIndex(currentIndex + 1);
+    setCurrentIndex(newIndex);
     if (answer === questions[currentIndex].correct_answer){
       setScore(score + 1);
-    }
-
-    if (newIndex >= questions.length) {
-      setGameOver(true);
     }
   };
 
   /* Body of the game */
-  return gameOver ? (
-    <h1 className='text-3xl text-white font-bold'>
-      You got {score} out of {questions.length}
-    </h1>
-  ) : (
-    questions.length > 0 ? (
+  return questions.length > 0 ? (
     <div className='container'>
+      {currentIndex >= questions.length ? (
+        <h1 className='text-3xl text-white font-bold'>
+          You scored {score} out of {questions.length}
+        </h1>
+      ) : (
         <Questionaire 
-          data={questions[currentIndex]} 
-          checkAnswer={checkAnswer}
+            data={questions[currentIndex]}
+            checkAnswer={checkAnswer}
         />
+      )}
     </div>
   ) : (
     <h2 className='text-2xl text-white font-bold'>Loading<i className="fa fa-hourglass-start"></i></h2>
-  ));
+  );
 }
   
 
