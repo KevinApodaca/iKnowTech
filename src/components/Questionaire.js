@@ -16,14 +16,9 @@ const Questionaire = ({
             <div className='grid grid-cols-2 gap-6 mt-6'>
                 {shuffledAnswers.map((answer) => (
                     <button
-                        className={`${correct_answer
-                             === answer ? 'bg-blue-300' :
-                              'bg-white'} p-4 
-                              text-blue-800 font-semibold 
-                              rounded shadow`}
-                              onClick={()=>checkAnswer
-                              (answer)}
-                              dangerouslySetInnerHTML={{__html: answer}}/>
+                        className='bg-white p-4 text-blue-800 font-semibold rounded shadow'
+                        onClick={()=>checkAnswer(answer)}
+                        dangerouslySetInnerHTML={{__html: answer}}/>
                 ))}
             </div>
         </div>
