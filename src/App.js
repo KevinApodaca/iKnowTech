@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+const TRIVIA_URL = 'https://opentdb.com/api.php?amount=20&category=18&difficulty=hard&type=multiple';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div className="container flex justify-center items-center h-screen">
+      
+        <div class="bg-white text-blue-600 p-4">The question is going to be here</div>
+
+       <div>
+          <div>Answer 1</div>
+          <div>Answer 2</div>
+          <div>Answer 3</div>
+          <div>Answer 4</div>
+       </div>
+        
+
+  </div>;
 }
 
 export default App;
