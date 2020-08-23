@@ -16,7 +16,16 @@ function App() {
     fetch(TRIVIA_URL)
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data.results);
+        const questions = data.results.map((question) => 
+        ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers
+          ].sort(() => Math.random() - 0.5),
+        }))
+
+        setQuestions(questions);
       });
   }, []);
 
@@ -54,7 +63,7 @@ function App() {
       )}
     </div>
   ) : (
-    <h2 className='text-2xl text-white font-bold'>Loading<i className="fa fa-hourglass-start"></i></h2>
+    <h2 className='text-2xl text-white font-bold'>Loading &nbsp;<i className="fa fa-hourglass-start"></i></h2>
   );
 }
   
