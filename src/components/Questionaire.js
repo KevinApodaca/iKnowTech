@@ -6,7 +6,7 @@ const Questionaire = ({
     checkAnswer,
     data: {question, correct_answer, answers},
  }) => {
-    return (        
+    return (
         <div className='flex flex-col'>
             <div className='bg-white text-blue-800 p-10 rounded shadow-md'>
                 <h2 
