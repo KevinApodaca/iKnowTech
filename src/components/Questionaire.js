@@ -33,6 +33,7 @@ const Questionaire = ({
                     Next Question
                </button>
             )}
+            <h3 className='text-1xl text-center'>Made with <span role='img' aria-label='Love'>🧡</span> by Kevin Apodaca <i className="fa fa-github"><a href='https://github.com/KevinApodaca'></a></i></h3>
         </div>
      );
 };
